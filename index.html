@@ -7,18 +7,27 @@
 <title>Agencia de Viajes</title>
 </head>
 <body>
-  
 <div class="container">
-  <h1>Busqueda y Reserva de Vuelos y Hoteles</h1>
+  <h1>Busqueda y Reservas de Vuelos y Hoteles</h1>
   <div class="search-container">
-  <input type="text" id="destination" placeholder="Destino">
+    <input type="text" id="destination" placeholder="Destino">
     <input type="date" id="travel-date">
     <select id="type-selector">
       <option value="all">Todos</option>
       <option value="vuelo">Vuelo</option>
       <option value="hotel">Hotel</option>
     </select>
+    <div class="people-container">
+      <label for="adults">Adultos:</label>
+      <input type="number" id="adults" placeholder="Adultos" min="1" max="10" value="1">
+      <label for="children">Niños:</label>
+      <input type="number" id="children" placeholder="Niños" min="0" max="10" value="0">
+    </div>
     <button id="search-button">Buscar</button>
+  </div>
+  <div class="sort-container">
+    <button id="sort-price">Ordenar por precio</button>
+    <button id="sort-availability">Ordenar por disponibilidad</button>
   </div>
   <div id="results-container">
     <!-- Los resultados de la búsqueda se mostrarán aquí -->
@@ -28,6 +37,7 @@
 <div id="notifications-container">
   <!-- Las notificaciones se mostrarán aquí -->
 </div>
+<img id="moving-image" src="pngwing.com.png" alt="Imagen animada">
 <script src="script.js"></script>
 </body>
 </html>

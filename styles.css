@@ -15,6 +15,36 @@
   margin-bottom: 20px;
 }
 
+.search-container input, .search-container select {
+  margin: 5px;
+}
+
+.people-container {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  margin: 10px 0;
+}
+
+.people-container label {
+  margin: 0 5px;
+}
+
+.people-container input {
+  margin: 0 10px;
+  width: 60px;
+}
+
+/* Contenedor de ordenamiento */
+.sort-container {
+  text-align: center;
+  margin-top: 10px;
+}
+
+.sort-container button {
+  margin: 5px;
+}
+
 /* Contenedor de resultados */
 #results-container {
   text-align: center;
@@ -35,14 +65,35 @@
 
 /* Estilo de notificaciones */
 .notification {
-  background-color: #ffeb3b; /* Color de fondo amarillo */
+  background-color: #ffeb3b;
   padding: 10px;
   margin-bottom: 10px;
-  border: 1px solid #fbc02d; /* Borde de color más oscuro */
+  border: 1px solid #fbc02d;
   border-radius: 5px;
-  font-size: 1.2em; /* Tamaño de fuente aumentado */
-  font-family: 'Arial', sans-serif; /* Cambiar estilo de letra */
-  font-weight: bold; /* Letra en negrita */
-  color: #000; /* Color de la letra */
-  text-align: center; /* Centramos el texto dentro de la notificación */
+  font-size: 1.2em;
+  font-family: 'Arial', sans-serif;
+  font-weight: bold;
+  color: #000;
+  text-align: center;
+}
+/* Estilo de la imagen animada */
+#moving-image {
+  position: absolute;
+  bottom: 0;
+  left: 0;
+  width: 100px;
+  height: 100px;
+  animation: flyAcrossPage 15s linear; /* Duración de la animación a 10 segundos */
+}
+
+@keyframes flyAcrossPage {
+  0% {
+    transform: translate(0, 0) rotate(0deg);
+  }
+  50% {
+    transform: translate(calc(100vw - 100px), calc(-100vh + 100px)) rotate(45deg);
+  }
+  100% {
+    transform: translate(calc(100vw - 100px), calc(-100vh + 100px)) rotate(45deg); /* Mantiene la posición final */
+  }
 }

@@ -33,7 +33,7 @@ class PaqueteTuristico {
     }
   }
   
-  // Datos simulados para los paquetes turísticos 
+  // Datos simulados para los paquetes turísticos en pesos chilenos ficticios
   const sampleData = [
     new PaqueteTuristico('vuelo', 'Buenos Aires', '2023-07-10', 500000, 'Disponible'),
     new PaqueteTuristico('hotel', 'Buenos Aires', '2023-07-10', 150000, 'Disponible'),
@@ -51,6 +51,12 @@ class PaqueteTuristico {
   document.addEventListener('DOMContentLoaded', () => {
     const searchButton = document.getElementById('search-button');
     searchButton.addEventListener('click', search);
+  
+    const sortPriceButton = document.getElementById('sort-price');
+    sortPriceButton.addEventListener('click', () => sortResults('price'));
+  
+    const sortAvailabilityButton = document.getElementById('sort-availability');
+    sortAvailabilityButton.addEventListener('click', () => sortResults('availability'));
   
     // Simular notificaciones en tiempo real
     setInterval(() => {
@@ -79,21 +85,22 @@ class PaqueteTuristico {
     const travelDate = document.getElementById('travel-date').value;
     const typeSelector = document.getElementById('type-selector').value;
     const resultsContainer = document.getElementById('results-container');
+    const noResults = document.getElementById('no-results');
+  
+    const filteredPackages = PaqueteTuristico.filterPackages(sampleData, destination, travelDate, typeSelector);
+  
     resultsContainer.innerHTML = '';
   
-    // Filtrar paquetes turísticos
-    const results = PaqueteTuristico.filterPackages(sampleData, destination, travelDate, typeSelector);
-  
-    // Mostrar resultados o mensaje de no encontrado
-    if (results.length > 0) {
-      results.forEach(pkg => {
+    if (filteredPackages.length === 0) {
+      noResults.style.display = 'block';
+    } else {
+      noResults.style.display = 'none';
+      filteredPackages.forEach(pkg => {
         const resultItem = document.createElement('div');
         resultItem.classList.add('result-item');
         resultItem.innerHTML = pkg.getDetails();
         resultsContainer.appendChild(resultItem);
       });
-    } else {
-      resultsContainer.innerHTML = '<p>No se encontraron resultados</p>';
     }
   }
   
@@ -106,12 +113,35 @@ class PaqueteTuristico {
     notificationsContainer.appendChild(notification);
     notificationsContainer.style.display = 'block';
   
-    // Eliminar notificación después de 5 segundos
     setTimeout(() => {
       notificationsContainer.removeChild(notification);
       if (notificationsContainer.children.length === 0) {
         notificationsContainer.style.display = 'none';
       }
-    }, 5000);
+    }, 5000); // Mostrar notificación durante 5 segundos
+  }
+  
+  // Función para ordenar resultados
+  function sortResults(criteria) {
+    const resultsContainer = document.getElementById('results-container');
+    const resultItems = Array.from(resultsContainer.getElementsByClassName('result-item'));
+  
+    let sortedItems;
+    if (criteria === 'price') {
+      sortedItems = resultItems.sort((a, b) => {
+        const priceA = parseInt(a.querySelector('p:nth-child(3)').innerText.replace('$', '').replace(/\./g, ''));
+        const priceB = parseInt(b.querySelector('p:nth-child(3)').innerText.replace('$', '').replace(/\./g, ''));
+        return priceA - priceB;
+      });
+    } else if (criteria === 'availability') {
+      sortedItems = resultItems.sort((a, b) => {
+        const availabilityA = a.querySelector('p:nth-child(4)').innerText;
+        const availabilityB = b.querySelector('p:nth-child(4)').innerText;
+        return availabilityA.localeCompare(availabilityB);
+      });
+    }
+  
+    resultsContainer.innerHTML = '';
+    sortedItems.forEach(item => resultsContainer.appendChild(item));
   }
   
