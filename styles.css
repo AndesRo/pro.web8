@@ -1,0 +1,48 @@
+/* Contenedor principal */
+.container {
+  max-width: 800px;
+  margin: 0 auto;
+  padding: 20px;
+  border: 1px solid #ccc;
+  border-radius: 8px;
+  background-color: #f9f9f9;
+  box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+}
+
+/* Contenedor de búsqueda */
+.search-container {
+  text-align: center;
+  margin-bottom: 20px;
+}
+
+/* Contenedor de resultados */
+#results-container {
+  text-align: center;
+  margin-top: 20px;
+}
+
+/* Contenedor de notificaciones */
+#notifications-container {
+  position: fixed;
+  top: 50%;
+  right: 10px;
+  transform: translateY(-50%);
+  width: 300px;
+  max-width: 90%;
+  z-index: 1000;
+  display: none;
+}
+
+/* Estilo de notificaciones */
+.notification {
+  background-color: #ffeb3b; /* Color de fondo amarillo */
+  padding: 10px;
+  margin-bottom: 10px;
+  border: 1px solid #fbc02d; /* Borde de color más oscuro */
+  border-radius: 5px;
+  font-size: 1.2em; /* Tamaño de fuente aumentado */
+  font-family: 'Arial', sans-serif; /* Cambiar estilo de letra */
+  font-weight: bold; /* Letra en negrita */
+  color: #000; /* Color de la letra */
+  text-align: center; /* Centramos el texto dentro de la notificación */
+}
