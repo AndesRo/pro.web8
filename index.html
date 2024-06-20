@@ -1,47 +1,56 @@
 <!DOCTYPE html>
 <html lang="es">
 <head>
-<meta charset="UTF-8">
-<meta name="viewport" content="width=device-width, initial-scale=1.0">
-<link rel="stylesheet" href="styles.css">
-<title>Agencia de Viajes</title>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta name="description" content="Reserva vuelos y hoteles con nuestra agencia de viajes. Encuentra las mejores ofertas y promociones.">
+  <meta name="keywords" content="viajes, vuelos, hoteles, reservas, ofertas">
+  <link rel="stylesheet" href="styles.css">
+  <title>Agencia de Viajes</title>
 </head>
 <body>
-  <div id="flash-notification-container"></div>
- 
-<div class="container">
-  <h1>Reservas de Vuelos y Hoteles</h1>
-  <div class="search-container">
-    <input type="text" id="destination" placeholder="Destino">
-    <input type="date" id="travel-date">
-    <select id="type-selector">
-      <option value="all">Todos</option>
-      <option value="vuelo">Vuelo</option>
-      <option value="hotel">Hotel</option>
-    </select>
-    <div class="people-container">
-      <label for="adults">Adultos:</label>
-      <input type="number" id="adults" placeholder="Adultos" min="1" max="10" value="1">
-      <label for="children">Niños:</label>
-      <input type="number" id="children" placeholder="Niños" min="0" max="10" value="0">
+  <div id="flash-notification-container" role="alert" aria-live="assertive"></div>
+  
+  <main class="container">
+    <h1>Reservas de Vuelos y Hoteles</h1>
+    <div class="search-container" role="search">
+      <label for="destination">Destino:</label>
+      <input type="text" id="destination" placeholder="Destino" aria-label="Destino">
+      
+      <label for="travel-date">Fecha de viaje:</label>
+      <input type="date" id="travel-date" aria-label="Fecha de viaje">
+      
+      <label for="type-selector">Tipo:</label>
+      <select id="type-selector" aria-label="Tipo">
+        <option value="all">Todos</option>
+        <option value="vuelo">Vuelo</option>
+        <option value="hotel">Hotel</option>
+      </select>
+      
+      <div class="people-container">
+        <label for="adults">Adultos:</label>
+        <input type="number" id="adults" placeholder="Adultos" min="1" max="10" value="1" aria-label="Número de adultos">
+        
+        <label for="children">Niños:</label>
+        <input type="number" id="children" placeholder="Niños" min="0" max="10" value="0" aria-label="Número de niños">
+      </div>
+      
+      <button id="search-button" aria-label="Buscar">Buscar</button>
     </div>
-    <button id="search-button">Buscar</button>
-  </div>
-  <div class="sort-container">
-    <button id="sort-price">Ordenar por precio</button>
-    <button id="sort-availability">Ordenar por disponibilidad</button>
-  </div>
-  <div id="results-container">
-    <!-- Los resultados de la búsqueda se mostrarán aquí -->
-    <p id="no-results">No se encontraron resultados</p>
-  </div>
-</div>
-<div id="notifications-container">
-  <!-- Las notificaciones se mostrarán aquí -->
-</div>
-<img id="moving-image" src="pngwing.com.png" alt="Imagen animada">
-
-
-<script src="script.js"></script>
+    
+    <div class="sort-container">
+      <button id="sort-price">Ordenar por precio</button>
+      <button id="sort-availability">Ordenar por disponibilidad</button>
+    </div>
+    
+    <!-- Notificaciones amarillas debajo del botón de ordenar por precio -->
+    <div id="notifications-container">
+      <!-- Las notificaciones se mostrarán aquí -->
+    </div>
+    
+  
+  <img id="moving-image" src="pngwing.com.png" alt="Imagen animada" role="img">
+  
+  <script src="script.js"></script>
 </body>
 </html>

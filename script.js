@@ -43,6 +43,7 @@ const sampleData = [
   new PaqueteTuristico('Lima', '2024-09-21', 'vuelo', '$190.000 CLP', 'Disponible'),
   new PaqueteTuristico('Bogotá', '2024-09-30', 'hotel', '$250.000 CLP', 'No disponible')
 ];
+
 document.getElementById('search-button').addEventListener('click', search);
 document.getElementById('sort-price').addEventListener('click', () => sortResults('price'));
 document.getElementById('sort-availability').addEventListener('click', () => sortResults('availability'));
@@ -136,8 +137,7 @@ document.addEventListener('DOMContentLoaded', () => {
   setInterval(generateRandomNotification, 10000);
 });
 
-
-// notificacion flash//
+// notificacion flash
 document.addEventListener('DOMContentLoaded', function() {
   // Función para mostrar la notificación flash
   function showFlashNotification(message) {
