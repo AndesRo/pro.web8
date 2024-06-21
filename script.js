@@ -165,5 +165,5 @@ document.addEventListener('DOMContentLoaded', function() {
   }
 
   // Mostrar notificación ficticia al cargar la página
-  showFlashNotification('¡Oferta de último minuto! Vuelo a Santiago por $150.000 CLP');
+  showFlashNotification('¡Ultimo minuto!Vuelo a Santiago por $150.000 CLP');
 });
