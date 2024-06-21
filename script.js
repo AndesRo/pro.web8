@@ -137,33 +137,4 @@ document.addEventListener('DOMContentLoaded', () => {
   setInterval(generateRandomNotification, 10000);
 });
 
-// notificacion flash
-document.addEventListener('DOMContentLoaded', function() {
-  // Función para mostrar la notificación flash
-  function showFlashNotification(message) {
-    const flashNotificationContainer = document.getElementById('flash-notification-container');
-    flashNotificationContainer.textContent = message;
 
-    // Mostrar la notificación
-    flashNotificationContainer.style.display = 'block';
-
-    // Animación de flash más lenta
-    flashNotificationContainer.animate([
-      { opacity: 0, transform: 'scale(0.8)' },
-      { opacity: 1, transform: 'scale(1.2)' },
-      { opacity: 1, transform: 'scale(1.2)' },
-      { opacity: 0, transform: 'scale(0.8)' }
-    ], {
-      duration: 2500, // Duración más larga en milisegundos para una animación más lenta
-      easing: 'ease-in-out' // Función de aceleración
-    });
-
-    // Ocultar la notificación después de la animación
-    setTimeout(function() {
-      flashNotificationContainer.style.display = 'none';
-    }, 2500); // Ajuste el tiempo de acuerdo con la duración de la animación
-  }
-
-  // Mostrar notificación ficticia al cargar la página
-  showFlashNotification('¡ULTIMO MINUTO!Vuelo a Santiago por $150.000 CLP');
-});

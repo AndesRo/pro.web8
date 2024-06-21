@@ -1,28 +1,53 @@
+/* Estilos para las nubes */
+.clouds {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  overflow: hidden;
+  z-index: -1;
+}
+
+.cloud {
+  width: 300px;
+  height: 150px;
+  background-image: url('nubes.png'); /* Reemplaza 'cloud.png' con la ruta de tu imagen de nube */
+  background-size: cover;
+  position: absolute;
+  top: calc(50% - 75px); /* Ajusta la posición verticalmente */
+  animation: moveClouds 25s linear infinite;
+}
+
+@keyframes moveClouds {
+  0% {
+    left: 100%;
+  }
+  100% {
+    left: -300px; /* Ancho de la nube para iniciar fuera del borde izquierdo */
+  }
+}
+
+/* Estilos para el cuerpo de la página */
 body {
   font-family: Arial, sans-serif;
   line-height: 1.6;
   margin: 0;
   padding: 0;
-  background-color: #f4f4f4;
+  background-color: #f4f4f4; /* Color de fondo por defecto */
+  background-image: url('cielo.png'); /* Ruta de tu imagen de fondo */
+  background-size: cover;
+  background-position: center;
+  background-repeat: no-repeat;
 }
 
 .container {
   max-width: 800px;
   margin: 0 auto;
   padding: 20px;
-}
-
-#flash-notification-container {
-  position: fixed;
-  top: 20px;
-  left: 30%; /* Ajustado para mover hacia la izquierda */
-  transform: translateX(-50%);
-  padding: 10px 20px;
-  background-color: #a44ef0;
-  color: white;
-  border-radius: 5px;
-  display: none;
-  z-index: 1000;
+  background-color: rgba(255, 255, 255, 0.8); /* Fondo semi-transparente para el contenido */
+  border-radius: 10px; /* Borde redondeado */
+  box-shadow: 0 0 10px rgba(0, 0, 0, 0.1); /* Sombra suave */
 }
 
 .notification {
@@ -45,8 +70,8 @@ body {
 }
 
 #notifications-container {
-  margin-top: 20px; /* Espacio entre los botones y las notificaciones */
-  text-align: center; /* Alineación centrada */
+  margin-top: 20px;
+  text-align: center;
 }
 
 #moving-image {
@@ -159,3 +184,4 @@ input, select {
     font-size: 1em;
   }
 }
+
