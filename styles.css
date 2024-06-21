@@ -15,10 +15,10 @@ body {
 #flash-notification-container {
   position: fixed;
   top: 20px;
-  left: 10%; /* Ajustado para mover hacia la izquierda */
+  left: 30%; /* Ajustado para mover hacia la izquierda */
   transform: translateX(-50%);
   padding: 10px 20px;
-  background-color: #764ef0;
+  background-color: #a44ef0;
   color: white;
   border-radius: 5px;
   display: none;
@@ -146,6 +146,16 @@ input, select {
   #flash-notification-container {
     width: 90%;
     max-width: none;
-    left: 35%; /* Ajustar también para pantallas pequeñas si es necesario */
+    left: 50%;
+    top: 10px;
+    transform: translateX(-50%);
+  }
+}
+
+@media (max-width: 400px) {
+  #flash-notification-container {
+    width: 95%;
+    padding: 10px;
+    font-size: 1em;
   }
 }
