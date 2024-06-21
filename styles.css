@@ -15,7 +15,7 @@ body {
 #flash-notification-container {
   position: fixed;
   top: 20px;
-  left: 30%; /* Ajustado para mover hacia la izquierda */
+  left: 10%; /* Ajustado para mover hacia la izquierda */
   transform: translateX(-50%);
   padding: 10px 20px;
   background-color: #764ef0;
