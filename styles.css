@@ -160,26 +160,6 @@ input, select {
   transform: scale(1.05);
 }
 
-/* Media Queries para pantallas pequeñas */
-@media (max-width: 600px) {
-  .container {
-    padding: 10px; /* Reducir el padding para dispositivos móviles */
-  }
-  
-  #notifications-container {
-    width: 90%;
-    right: 5%;
-  }
-
-  #flash-notification-container {
-    width: 90%;
-    max-width: none;
-    left: 50%;
-    top: 10px;
-    transform: translateX(-50%);
-  }
-}
-
 @media (max-width: 400px) {
   #flash-notification-container {
     width: 95%;
@@ -187,25 +167,14 @@ input, select {
     font-size: 1em;
   }
 }
-
-#landing-plane {
-  position: absolute;
-  bottom: 0;
-  left: -100px; /* Posición inicial fuera de la pantalla a la izquierda */
-  width: 200px; /* Ajusta el tamaño según tus necesidades */
-  height: auto;
-  z-index: 1; /* Asegura que esté sobre las nubes */
-  animation: landPlane 10s linear forwards; /* No se repite */
+.result-item:hover {
+  transform: scale(1.05);
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
 }
 
-@keyframes landPlane {
-  0% {
-    transform: translateX(-100px) rotateZ(0deg); /* Mover desde la izquierda */
-  }
-  50% {
-    transform: translateX(calc(50vw - 100px)) rotateZ(0deg); /* Mover hacia el centro */
-  }
-  100% {
-    transform: translateX(calc(100vw + 100px)) rotateZ(-10deg); /* Aterrizaje con ligera inclinación */
-  }
+.result-item:active {
+  transform: scale(0.95);
 }
+
+
+

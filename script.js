@@ -137,4 +137,12 @@ document.addEventListener('DOMContentLoaded', () => {
   setInterval(generateRandomNotification, 10000);
 });
 
+// Inicializar el modal al cargar la página
+document.addEventListener('DOMContentLoaded', function() {
+  var elems = document.querySelectorAll('.modal');
+  var instances = M.Modal.init(elems);
+});
+
+
+
 
